@@ -10,8 +10,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import { styleSheets } from 'min-document';
-import SafeAreaView from 'react-native-safe-area-view'
+import SafeAreaView from 'react-native-safe-area-view';
 
 
 const DirectoryNavigator = createStackNavigator(
@@ -186,7 +185,6 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         }
-
     },
     {
         drawerBackgroundColor: '#CEC8FF',
