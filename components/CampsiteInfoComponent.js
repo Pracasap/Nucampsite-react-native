@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     postFavorite: campsiteId => (postFavorite(campsiteId)),
-    postComment: (campsiteId, rating, author, text) => (postComment)(campsiteId, rating, author, text)
+    postComment: (campsiteId, rating, author, text) => postComment(campsiteId, rating, author, text)
 };
 
 function RenderCampsite(props) {
@@ -58,6 +58,7 @@ function RenderCampsite(props) {
             } else if (recognizeComment(gestureState)) {
                 props.onShowModal();
             }
+            return true;
         }
     })
 
@@ -81,7 +82,7 @@ function RenderCampsite(props) {
                             name={props.favorite ? 'heart' : 'heart-o'}
                             type='font-awesome'
                             color='#f50'
-                            reised
+                            raised
                             reverse
                             onPress={() => props.favorite?
                                 console.log('Already set as a favorite') : props.markFavorite()}
@@ -236,6 +237,7 @@ class CampsiteInfo extends Component {
                             <Button
                                 onPress={() => {
                                     this.toggleModal();
+                                    this.resetForm();
                                 }}
                                 color='#808080'
                                 title='cancel'
@@ -251,6 +253,7 @@ class CampsiteInfo extends Component {
 const styles = StyleSheet.create({
     cardRow: {
         alignItems: 'center',
+        justifyContent: 'center',
         flex: 1,
         flexDirection: 'row',
         margin: 20
